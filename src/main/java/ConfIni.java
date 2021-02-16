@@ -26,7 +26,28 @@ class ConfIni {
                     FileReader reader = new FileReader(dir + this.fileIni);
                     Scanner scanner = new Scanner(reader);
                     while (scanner.hasNextLine()) {
-                        System.out.println(scanner.nextLine());
+                        String value = scanner.nextLine();
+                        int pos = value.indexOf("=");
+                        if (pos > 0) {
+                            System.out.print(value.substring(0,pos).concat(": "));
+                            if (value.substring(0,pos).equals("driver")) {
+                                driver = value.substring(pos+1);
+                                System.out.println(driver);
+                            }
+                            if (value.substring(0,pos).equals("url")) {
+                                url = value.substring(pos+1);
+                                System.out.println(url);
+                            }
+                            if (value.substring(0,pos).equals("username")) {
+                                username = value.substring(pos+1);
+                                System.out.println(username);
+                            }
+                            if (value.substring(0,pos).equals("password")) {
+                                password = value.substring(pos+1);
+                                System.out.println(password);
+                            }
+                        }
+
                     }
                 } catch (FileNotFoundException ex) {
                     System.out.println(ex.getMessage());
