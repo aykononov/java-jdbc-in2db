@@ -21,7 +21,7 @@ class ConfIni {
         for (File f : files) {
             if (!f.isDirectory() && ini.equals(f.getName())) {
                 this.fileIni = f.getName();
-                System.out.println("Читаем файл конфигурации: " + fileIni + "\n");
+                System.out.println("Читаем файл конфигурации: " + fileIni);
                 try {
                     FileReader reader = new FileReader(dir + this.fileIni);
                     Scanner scanner = new Scanner(reader);
@@ -59,5 +59,21 @@ class ConfIni {
             System.out.println("Отсутствует файл конфигурации (config.ini).");
         }
 
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }
