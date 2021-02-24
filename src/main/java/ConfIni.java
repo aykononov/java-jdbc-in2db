@@ -28,7 +28,7 @@ class ConfIni {
                     while (scanner.hasNextLine()) {
                         String value = scanner.nextLine();
                         int pos = value.indexOf("=");
-                        if (pos > 0) {
+                        if (pos > 0 && !value.startsWith("#")) {
                             System.out.print(value.substring(0,pos).concat(": "));
                             if (value.substring(0,pos).equals("driver")) {
                                 driver = value.substring(pos+1);
